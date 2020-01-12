@@ -10,26 +10,27 @@ A final capstone project will allow you to apply the skills you learned by build
 
 ## About the course
 
-With every smartphone and computer now boasting multiple processors, the use of functional ideas to facilitate parallel programming is becoming increasingly widespread. In this course, you'll learn the fundamentals of parallel programming, from task parallelism to data parallelism. In particular, you'll see how many familiar ideas from functional programming map perfectly to to the data parallel paradigm. We'll start the nuts and bolts how to effectively parallelize familiar collections operations, and we'll build up to parallel collections, a production-ready data parallel collections library available in the Scala standard library. Throughout, we'll apply these concepts through several hands-on examples that analyze real-world data, such as popular algorithms like k-means clustering.
+Manipulating big data distributed over a cluster using functional concepts is rampant in industry, and is arguably one of the first widespread industrial uses of functional ideas. This is evidenced by the popularity of MapReduce and Hadoop, and most recently Apache Spark, a fast, in-memory distributed collections framework written in Scala. In this course, we'll see how the data parallel paradigm can be extended to the distributed case, using Spark throughout. We'll cover Spark's programming model in detail, being careful to understand how and when it differs from familiar programming models, like shared-memory parallel collections or sequential Scala collections. Through hands-on examples in Spark and Scala, we'll learn when important issues related to distribution like latency and network communication should be considered and how they can be addressed effectively for improved performance.
 
 Learning Outcomes. By the end of this course you will be able to:
 
-- reason about task and data parallel programs,
-- express common algorithms in a functional style and solve them in parallel,
-- competently microbenchmark parallel code,
-- write programs that effectively use parallel collections to achieve performance
+- read data from persistent storage and load it into Apache Spark,
+- manipulate data with Spark and Scala,
+- express algorithms for data analysis in a functional style, 
+- recognize how to avoid shuffles and recomputation in Spark,
 
 ## Syllabus 
 
 
 
-*Parallel Programming - Week 1 :* We motivate parallel programming and introduce the basic constructs for building parallel programs on JVM and Scala. Examples such as array norm and Monte Carlo computations illustrate these concepts. We show how to estimate work and depth of parallel programs as well as how to benchmark the implementations.
+*Getting Started + Spark Basics - Week 1 :* Get up and running with Scala on your computer. Complete an example assignment to familiarize yourself with our unique way of submitting assignments. In this week, we'll bridge the gap between data parallelism in the shared memory scenario (learned in the Parallel Programming course, prerequisite) and the distributed scenario. We'll look at important concerns that arise in distributed systems, like latency and failure. We'll go on to cover the basics of Spark, a functionally-oriented framework for big data processing in Scala. We'll end the first week by exercising what we learned about Spark by immediately getting our hands dirty analyzing a real-world data set..
 
-*Basic Task Parallel Algorithms - Week 2 :*We continue with examples of parallel algorithms by presenting a parallel merge sort. We then explain how operations such as map, reduce, and scan can be computed in parallel. We present associativity as the key condition enabling parallel implementation of reduce and scan.
+*Reduction Operations & Distributed Key-Value Pairs - Week 2 :* This week, we'll look at a special kind of RDD called pair RDDs. With this specialized kind of RDD in hand, we'll cover essential operations on large data sets, such as reductions and joins.
 
-*Data-Parallelism - Week 3 :* We show how data parallel operations enable the development of elegant data-parallel code in Scala. We give an overview of the parallel collections hierarchy, including the traits of splitters and combiners that complement iterators and builders from the sequential case.
+*Partitioning and Shuffling - Week 3 :* This week we'll look at some of the performance implications of using operations like joins. Is it possible to get the same result without having to pay for the overhead of moving data over the network? We'll answer this question by delving into how we can partition our data to achieve better data locality, in turn optimizing some of our Spark jobs.
 
-*Data Structures for Parallel Computing - Week 4 :* We give a glimpse of the internals of data structures for parallel computing, which helps us understand what is happening under the hood of parallel collections.
+*Structured data: SQL, Dataframes, and Datasets - Week 4 :* 
+With our newfound understanding of the cost of data movement in a Spark job, and some experience optimizing jobs for data locality last week, this week we'll focus on how we can more easily achieve similar optimizations. Can structured data help us? We'll look at Spark SQL and its powerful optimizer which uses structure to apply impressive optimizations.
 
 
 **Assignment deatails are broken down in each week's folder.**
